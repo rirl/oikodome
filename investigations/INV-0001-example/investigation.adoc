@@ -1,0 +1,4 @@
+= Investigation
+
+ID:: INV-0001
+Question:: What is the intermediate state?

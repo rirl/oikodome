@@ -1,0 +1,7 @@
+= Prompt
+
+ID:: PROMPT-0001
+
+== User Prompt
+
+investigate intermediate state

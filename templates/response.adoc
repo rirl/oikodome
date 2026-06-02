@@ -1,0 +1,6 @@
+= Response
+
+ID::
+Prompt::
+
+== AI Response

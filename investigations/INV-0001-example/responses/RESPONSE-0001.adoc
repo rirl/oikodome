@@ -1,0 +1,6 @@
+= Response
+
+ID:: RESPONSE-0001
+Prompt:: PROMPT-0001
+
+Philippians 1:23 may be relevant.

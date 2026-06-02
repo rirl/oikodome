@@ -1,0 +1,6 @@
+= Claim
+
+ID:: CLAIM-0001
+Supported By:: EVID-0001
+
+Statement:: The New Testament contains passages consistent with conscious existence after death.

@@ -1,0 +1,13 @@
+= Provenance Architecture
+
+Question
+  ↓
+Prompt
+  ↓
+Response
+  ↓
+Evidence
+  ↓
+Claim
+  ↓
+Report

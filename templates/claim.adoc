@@ -1,0 +1,6 @@
+= Claim
+
+ID::
+Supported By::
+Statement::
+Confidence::
