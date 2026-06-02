@@ -1,9 +1,8 @@
-import io
-import sys
 from kios import cli
 
-def test_version_output(capsys):
-    rc = cli.main(["--version"])
-    captured = capsys.readouterr()
-    assert rc == 0
-    assert "KIOS MVP v2" in captured.out
+def test_module_exports():
+    # Ensure the CLI module exposes the expected Typer app and commands
+    assert hasattr(cli, "app")
+    assert hasattr(cli, "investigate")
+    assert hasattr(cli, "status")
+    assert hasattr(cli, "slugify")

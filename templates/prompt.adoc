@@ -1,6 +1,1 @@
 = Prompt
-
-ID::
-Timestamp::
-
-== User Prompt

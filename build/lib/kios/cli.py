@@ -1,32 +1,58 @@
 #!/usr/bin/env python3
-"""kios CLI entrypoint.
 
-Small, testable CLI wrapper for the KIOS MVP.
-"""
+from pathlib import Path
+from datetime import datetime
+import typer
 
-import argparse
-import logging
-from typing import List, Optional
-__version__ = "v2"
+app = typer.Typer(help="Knowledge Investigation Operating System (KIOS)")
 
-logger = logging.getLogger(__name__)
+INVESTIGATIONS_DIR = Path("investigations")
 
-def main(argv: Optional[List[str]] = None) -> int:
-    """Main entrypoint for the kios CLI.
+def slugify(text: str) -> str:
+    return text.lower().strip().replace(" ", "-").replace("/", "-")
 
-    Returns an exit code integer.
-    """
-    parser = argparse.ArgumentParser(prog="kios")
-    parser.add_argument("--version", action="store_true", help="Show version and exit")
-    args = parser.parse_args(argv)
+@app.command()
+def investigate(topic: str):
+    timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+    investigation_id = f"INV-{timestamp}"
+    investigation_path = INVESTIGATIONS_DIR / f"{investigation_id}-{slugify(topic)}"
 
-    if args.version:
-        # Use print for version output so it is easily captured by shells/packagers
-        print("KIOS MVP v2")
-        return 0
-    logger.info("kios started with no actionable arguments")
-    # TODO: implement actual CLI commands here
-    return 0
+    (investigation_path / "prompts").mkdir(parents=True, exist_ok=True)
+    (investigation_path / "responses").mkdir(exist_ok=True)
+    (investigation_path / "evidence").mkdir(exist_ok=True)
+    (investigation_path / "claims").mkdir(exist_ok=True)
+    (investigation_path / "notes").mkdir(exist_ok=True)
+
+    investigation_file = investigation_path / "investigation.adoc"
+
+    investigation_file.write_text(f'''= Investigation
+
+ID:: {investigation_id}
+
+Title:: {topic}
+
+Status:: Active
+
+Created:: {datetime.now().isoformat()}
+
+== Question
+
+{topic}
+''')
+
+    typer.echo(f"Created: {investigation_id}")
+    typer.echo(f"Location: {investigation_path}")
+
+@app.command()
+def status():
+    INVESTIGATIONS_DIR.mkdir(exist_ok=True)
+
+    investigations = [p for p in INVESTIGATIONS_DIR.iterdir() if p.is_dir()]
+
+    typer.echo(f"Investigations: {len(investigations)}")
+
+    for inv in investigations:
+        typer.echo(f"  - {inv.name}")
+
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-    raise SystemExit(main())
+    app()

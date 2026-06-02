@@ -1,6 +1,3 @@
-= KIOS MVP v2
+= KIOS MVP Bootstrap
 
 Question -> Prompt -> Response -> Evidence -> Claim -> Report
-
-Git is the system of record.
-Evidence is validated/editorialized content derived from AI responses.
