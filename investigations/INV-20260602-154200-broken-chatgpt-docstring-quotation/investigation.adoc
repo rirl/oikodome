@@ -1,0 +1,13 @@
+= Investigation
+
+ID:: INV-20260602-154200
+
+Title:: broken chatgpt docstring quotation
+
+Status:: Active
+
+Created:: 2026-06-02T15:42:00.064206
+
+== Question
+
+broken chatgpt docstring quotation
