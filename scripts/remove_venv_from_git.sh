@@ -29,13 +29,18 @@ else
 fi
 
 if [ "${1:-}" = '--history' ]; then
-  if command -v git-filter-repo >/dev/null 2>&1; then
-    echo 'Rewriting git history to remove .venv from all commits...'
-    git filter-repo --invert-paths --path .venv/
-    echo 'History rewritten. You may need to force-push branches and update collaborators.'
-  else
-    echo 'Error: git-filter-repo is not installed.' >&2
-    echo 'Install git-filter-repo and rerun with --history to rewrite repository history.' >&2
-    exit 1
+  GIT_FILTER_REPO=.venv/bin/git-filter-repo
+  if [ ! -x "$GIT_FILTER_REPO" ]; then
+    if command -v git-filter-repo >/dev/null 2>&1; then
+      GIT_FILTER_REPO=git-filter-repo
+    else
+      echo 'Error: git-filter-repo is not installed.' >&2
+      echo 'Install it in .venv or on PATH and rerun with --history to rewrite repository history.' >&2
+      exit 1
+    fi
   fi
+
+  echo 'Rewriting git history to remove .venv from all commits...'
+  "$GIT_FILTER_REPO" --invert-paths --path .venv/
+  echo 'History rewritten. You may need to force-push branches and update collaborators.'
 fi

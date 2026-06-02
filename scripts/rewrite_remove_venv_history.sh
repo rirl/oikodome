@@ -9,11 +9,16 @@ set -euo pipefail
 REPO_ROOT=$(git rev-parse --show-toplevel)
 cd "$REPO_ROOT"
 
-if ! command -v git-filter-repo >/dev/null 2>&1; then
-  echo 'Error: git-filter-repo is not installed.' >&2
-  echo 'Install it and rerun this script. Example:' >&2
-  echo '  pip install git-filter-repo' >&2
-  exit 1
+GIT_FILTER_REPO=.venv/bin/git-filter-repo
+if [ ! -x "$GIT_FILTER_REPO" ]; then
+  if command -v git-filter-repo >/dev/null 2>&1; then
+    GIT_FILTER_REPO=git-filter-repo
+  else
+    echo 'Error: git-filter-repo is not installed.' >&2
+    echo 'Install it in .venv or on PATH and rerun this script. Example:' >&2
+    echo '  .venv/bin/python -m pip install git-filter-repo' >&2
+    exit 1
+  fi
 fi
 
 if [ ! -d .git ]; then
@@ -23,7 +28,7 @@ fi
 
 if [ -d .venv ] || git ls-files --error-unmatch .venv >/dev/null 2>&1; then
   echo 'Rewriting git history to remove .venv from all commits...'
-  git filter-repo --invert-paths --path .venv/ || {
+  "$GIT_FILTER_REPO" --invert-paths --path .venv/ || {
     echo 'git-filter-repo failed.' >&2
     exit 1
   }

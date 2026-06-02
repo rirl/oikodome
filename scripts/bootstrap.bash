@@ -24,16 +24,13 @@ fi
 if [ -f "$PROJECT_ROOT/requirements-dev.txt" ]; then
   echo "Installing requirements-dev.txt"
   pip install -r "$PROJECT_ROOT/requirements-dev.txt"
+else
+  echo "Installing git-filter-repo into the virtualenv"
+  pip install git-filter-repo
 fi
 
 echo "Installing project in editable mode"
 pip install -e "$PROJECT_ROOT"
-
-# Optionally install development requirements if present
-if [ -f "$PROJECT_ROOT/requirements-dev.txt" ]; then
-  echo "Installing development requirements"
-  pip install -r "$PROJECT_ROOT/requirements-dev.txt"
-fi
 
 echo "Building project distributions"
 python -m build "$PROJECT_ROOT" --wheel --sdist
