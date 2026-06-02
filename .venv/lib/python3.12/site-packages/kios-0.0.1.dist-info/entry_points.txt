@@ -1,0 +1,2 @@
+[console_scripts]
+kios = kios.cli:main

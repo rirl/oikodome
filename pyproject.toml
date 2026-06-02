@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "kios"
 version = "0.0.1"
 description = "KIOS MVP"
-authors = [{name = "", email = ""}]
+authors = [{name = "Richard Landon", email = "rlandon@usa.net"}]
 
 [project.scripts]
 kios = "kios.cli:main"
