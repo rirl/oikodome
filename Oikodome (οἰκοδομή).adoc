@@ -1,0 +1,47 @@
+= Oikodome (οἰκοδομή)
+:description: An overview of the Koine Greek word oikodome, its meaning, and its biblical context.
+:toc: left
+:icons: font
+
+== Etymology & Meaning
+
+The word *oikodome* (written in Greek as *οἰκοδομή*) is a composite noun derived from two distinct Koine Greek roots:
+
+1. *oikos* (οἶκος) – Meaning "house," "home," or "dwelling."
+2. *demeō* (δέμω) – A root verb meaning "to build" or "to construct."
+
+Combined, the word carries a dual meaning depending on the context:
+* **The Process:** The act of building, construction, or spiritual "building up" (edification).
+* **The Product:** The final structure, building, or edifice itself.
+
+== Biblical Usage
+
+In the New Testament, *oikodome* shifts from a literal architectural term to a profound metaphor for community and spiritual growth.
+
+=== 1. Literal Buildings
+In the Gospels, it refers to physical structures, most notably the Jerusalem Temple.
+
+[quote, Mark 13:1 (ESV)]
+____
+And as he came out of the temple, one of his disciples said to him, "Look, Teacher, what wonderful stones and what wonderful **buildings** (*οἰκοδομαί*)!"
+____
+
+=== 2. Spiritual Edification
+The Apostle Paul frequently uses the word to describe the spiritual development and strengthening of believers.
+
+[quote, 1 Corinthians 3:9 (ESV)]
+____
+For we are God's fellow workers. You are God's field, **God's building** (*Θεοῦ οἰκοδομή*).
+____
+
+[quote, Ephesians 4:12 (ESV)]
+____
+...for the equipment of the saints for the work of ministry, for **building up** (*οἰκοδομήν*) the body of Christ.
+____
+
+== Why Use This for a Project Name?
+
+Using `oikodome` as a repository or project name signifies that the project is:
+* **Structural:** It serves as a foundational architecture or framework.
+* **Constructive:** It is designed to build something valuable from the ground up.
+* **Collaborative:** It represents a unified space where different components work together to form a complete system.
