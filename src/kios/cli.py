@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"kios CLI entrypoint.
+"""kios CLI entrypoint.
 
 Small, testable CLI wrapper for the KIOS MVP.
-""
+"""
 
 import argparse
 import logging
@@ -12,7 +12,7 @@ __version__ = "v2"
 logger = logging.getLogger(__name__)
 
 def main(argv: Optional[List[str]] = None) -> int:
-    ""Main entrypoint for the kios CLI.
+    """Main entrypoint for the kios CLI.
 
     Returns an exit code integer.
     """

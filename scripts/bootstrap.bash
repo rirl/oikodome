@@ -29,7 +29,20 @@ fi
 echo "Installing project in editable mode"
 pip install -e "$PROJECT_ROOT"
 
+# Optionally install development requirements if present
+if [ -f "$PROJECT_ROOT/requirements-dev.txt" ]; then
+  echo "Installing development requirements"
+  pip install -r "$PROJECT_ROOT/requirements-dev.txt"
+fi
+
 echo "Building project distributions"
 python -m build "$PROJECT_ROOT" --wheel --sdist
+# Optionally run tests if pytest is available in the virtualenv
+if python -m pytest --version > /dev/null 2>&1; then
+  echo "Running test suite"
+  python -m pytest -q
+else
+  echo "pytest not available in virtualenv; skipping tests"
+fi
 
 echo "Bootstrap complete."
