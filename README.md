@@ -1,0 +1,55 @@
+# KIOS (Knowledge Investigation Operating System)
+
+Small CLI for creating and managing simple "investigations" collections.
+
+## Installation
+Bootstrapping the project (creates a virtualenv and installs editable package):
+
+```bash
+bash scripts/bootstrap.bash
+```
+
+You can run the CLI via the installed console script or directly from the package:
+
+```bash
+# via installed script (after bootstrapping)
+kios investigate "My Topic"
+
+# or via python -m
+.venv/bin/python -m kios.cli investigate "My Topic"
+```
+
+## Commands
+- `investigate <topic>`
+  - Creates a timestamped investigation directory under `investigations/`
+  - Creates subfolders: `prompts`, `responses`, `evidence`, `claims`, `notes`
+  - Writes an `investigation.adoc` file containing metadata (ID, Title, Created)
+  - Example:
+    ```
+    kios investigate "Why did the server fail?"
+    # -> Created: INV-20240101-123456
+    # -> Location: investigations/INV-20240101-123456-why-did-the-server-fail
+    ```
+
+- `status`
+  - Prints a short summary of investigations present in the `investigations/` directory.
+  - Example:
+    ```
+    kios status
+    # -> Investigations: 3
+    #   - INV-20240101-123456-why-did-the-server-fail
+    #   - INV-20240102-101010-my-other-topic
+    ```
+
+## Development & Tests
+Run tests with the project's virtualenv:
+
+```bash
+.venv/bin/python -m pytest -q
+```
+
+## Contributing
+Contributions welcome. Please add tests for new behavior and follow the existing project style.
+
+## License
+Add a LICENSE file to indicate project licensing.
