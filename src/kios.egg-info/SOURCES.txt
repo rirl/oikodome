@@ -1,3 +1,4 @@
+README.md
 pyproject.toml
 src/kios/cli.py
 src/kios.egg-info/PKG-INFO
@@ -6,3 +7,4 @@ src/kios.egg-info/dependency_links.txt
 src/kios.egg-info/entry_points.txt
 src/kios.egg-info/top_level.txt
 tests/test_cli.py
+tests/test_kios_cli.py

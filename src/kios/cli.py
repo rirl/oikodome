@@ -54,5 +54,9 @@ def status():
     for inv in investigations:
         typer.echo(f"  - {inv.name}")
 
-if __name__ == "__main__":
+def main():
+    """Console entrypoint for the kios package (used by console_scripts)."""
     app()
+
+if __name__ == "__main__":
+    main()
