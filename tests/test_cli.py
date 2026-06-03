@@ -77,3 +77,40 @@ def test_slugify_edge_cases():
     assert cli.slugify("Hello World") == "hello-world"
     assert cli.slugify(" A/B C ") == "a-b-c"
     assert cli.slugify("MixedCASE") == "mixedcase"
+
+
+def test_investigate_prompt_api(monkeypatch, tmp_path, capsys):
+    class FixedDateTime:
+        @staticmethod
+        def now():
+            from datetime import datetime as real_datetime
+            return real_datetime(2020, 1, 2, 3, 4, 5)
+
+    monkeypatch.setattr(cli, 'INVESTIGATIONS_DIR', tmp_path / "investigations")
+    monkeypatch.setattr(cli, 'datetime', FixedDateTime)
+
+    topic = "Prompt API Test"
+    cli.investigate_prompt(topic)
+
+    ts = FixedDateTime.now().strftime("%Y%m%d-%H%M%S")
+    inv_id = f"INV-{ts}"
+    slug = cli.slugify(topic)
+    path = tmp_path / "investigations" / f"{inv_id}-{slug}"
+
+    # Check directories
+    assert (path / "prompts").is_dir()
+    assert (path / "responses").is_dir()
+    assert (path / "evidence").is_dir()
+    assert (path / "claims").is_dir()
+    assert (path / "notes").is_dir()
+
+    # Check prompt file
+    prompt_file = path / "prompts" / f"prompt-{ts}.md"
+    assert prompt_file.is_file()
+    content = prompt_file.read_text()
+    assert f"Topic: {topic}" in content
+    assert "Please produce a structured investigation plan" in content
+    captured = capsys.readouterr()
+    assert f"Created: {inv_id}" in captured.out
+    assert f"Location: {path}" in captured.out
+    assert f"Prompt: {prompt_file}" in captured.out
