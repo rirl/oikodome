@@ -1,0 +1,4 @@
+= Development Workflow
+
+uv sync
+uv run pytest

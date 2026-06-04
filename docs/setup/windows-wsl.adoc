@@ -1,0 +1,3 @@
+= Windows + WSL Setup
+
+wsl --install

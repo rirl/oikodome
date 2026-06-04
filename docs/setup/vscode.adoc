@@ -1,0 +1,3 @@
+= VS Code Setup
+
+Recommended extensions for KIOS.
