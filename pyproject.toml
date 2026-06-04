@@ -2,24 +2,26 @@
 name = "kios"
 version = "0.1.0"
 description = "Knowledge Investigation Operation System"
-readme = "README.adoc"
+readme = { file = "README.adoc", content-type = "text/plain" }
 requires-python = ">=3.12"
-dependencies = [
-    "openai>=2.0,<3.0",
-]
-
-[dependency-groups]
-dev = [
-    "pytest",
-    "ruff",
-    "mypy",
-]
+dependencies = ["openai>=2.0,<3.0"]
 
 [project.scripts]
 kios = "kios.cli:main"
 
+[dependency-groups]
+dev = ["pytest>=8.0", "ruff>=0.8", "mypy>=1.13"]
+
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kios"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 88
@@ -28,3 +30,4 @@ target-version = "py312"
 [tool.mypy]
 python_version = "3.12"
 strict = true
+mypy_path = "src"
