@@ -1,0 +1,9 @@
+__pycache__/
+generated/
+*.pdf 
+.venv/
+
+# Windows downloaded-file metadata
+*:Zone.Identifier
+*Zone.Identifier
+

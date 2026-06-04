@@ -1,0 +1,69 @@
+= Initial GitHub Issues
+:toc:
+:sectnums:
+
+== Issue 1 — Bootstrap Repository
+
+Type: chore
+
+Tasks:
+
+* Initialize Git repository
+* Configure uv
+* Configure pytest
+* Configure Ruff
+* Configure MyPy
+* Configure GitHub Actions
+
+Acceptance Criteria:
+
+* CI passes
+* Tests execute successfully
+
+== Issue 2 — Implement Investigation CLI
+
+Type: feature
+
+Command:
+
+[source,bash]
+----
+kios investigate "<prompt>"
+----
+
+Acceptance Criteria:
+
+* Investigation directory created
+* metadata.yaml generated
+* prompt.adoc generated
+* research-log.adoc generated
+* report.adoc generated
+
+== Issue 3 — Provenance Metadata
+
+Type: feature
+
+Tasks:
+
+* Track Git commit
+* Track AI provider
+* Track AI model
+* Track prompts
+
+Acceptance Criteria:
+
+* Provenance metadata attached to generated artifacts
+
+== Issue 4 — Antora Bootstrap
+
+Type: feature
+
+Tasks:
+
+* Initialize Antora structure
+* Create antora.yml
+* Create module structure
+
+Acceptance Criteria:
+
+* Antora site builds successfully

@@ -1,0 +1,18 @@
+= ADR-XXXX Title
+:sectnums:
+
+== Status
+
+Proposed
+
+== Context
+
+Describe the problem and context.
+
+== Decision
+
+Describe the architectural decision.
+
+== Consequences
+
+Describe the implications and trade-offs.

@@ -1,0 +1,3 @@
+= KIOS Investigations
+
+Generated investigations are stored here during local MVP development.

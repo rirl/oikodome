@@ -1,0 +1,3 @@
+= KIOS Investigation Prompt v1
+
+Investigate the supplied topic and produce structured concepts, claims, questions, evidence candidates, and a concise report.

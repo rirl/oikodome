@@ -1,0 +1,49 @@
+= KIOS
+:toc:
+:toclevels: 3
+
+Knowledge Investigation Operation System
+
+KIOS is a Git-native, provenance-aware, AI-assisted investigation platform built around:
+
+* Git repositories
+* AsciiDoc artifacts
+* Antora publication
+* Investigation provenance
+* Knowledge promotion workflows
+
+== Principles
+
+* Git-Native Knowledge
+* Provenance Awareness
+* Human-Readable Artifacts
+* Antora-Based Publication
+* AI-Assisted Investigation
+
+== Technology
+
+* Python 3.12
+* uv
+* OpenAI SDK
+* pytest
+* Ruff
+* MyPy
+* Antora
+* AsciiDoc
+
+== Development
+
+[source,bash]
+----
+uv sync
+uv run pytest
+uv run ruff check .
+uv run mypy src
+----
+
+== Initial Goal
+
+[source,bash]
+----
+uv run kios investigate "What is embodied cognition?"
+----

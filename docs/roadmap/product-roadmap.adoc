@@ -1,0 +1,50 @@
+= KIOS Product Roadmap
+:toc:
+:toclevels: 3
+:sectnums:
+
+== Vision
+
+KIOS is a Git-native, provenance-aware, AI-assisted knowledge investigation platform.
+
+== Release 0.1 — Investigation Bootstrap
+
+Goal: create the first operational investigation workflow.
+
+Capabilities:
+
+* Initialize investigations
+* Generate investigation artifacts
+* Persist investigation metadata
+* Run CLI investigations
+* Execute tests and CI
+
+Exit Criteria:
+
+* `uv run pytest` passes
+* `uv run kios investigate` works
+* GitHub Actions CI succeeds
+
+== Release 0.2 — Knowledge Extraction
+
+Extract reusable concepts, claims, questions, and entities.
+
+== Release 0.3 — Provenance and Evidence
+
+Establish traceable evidence chains, source links, and lineage tracking.
+
+== Release 0.4 — Argument Analysis
+
+Support claim graphs, counterarguments, rebuttals, and contradiction detection.
+
+== Release 0.5 — Knowledge Repositories
+
+Promote findings into canonical Git micro-repositories.
+
+== Release 0.6 — Antora Publication
+
+Generate publishable multi-repository documentation sites.
+
+== Release 1.0 — Knowledge Investigation Platform
+
+Stable Git-native investigation ecosystem.

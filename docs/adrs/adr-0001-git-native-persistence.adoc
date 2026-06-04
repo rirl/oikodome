@@ -1,0 +1,33 @@
+= ADR-0001 Git-Native Persistence
+:sectnums:
+
+== Status
+
+Accepted
+
+== Context
+
+KIOS requires durable, auditable, human-readable persistence.
+
+Traditional database-first architectures obscure provenance and complicate portability.
+
+== Decision
+
+KIOS shall treat Git repositories as the primary persistence mechanism.
+
+Investigations, knowledge repositories, and publication artifacts shall be stored as Git-managed AsciiDoc artifacts whenever practical.
+
+== Consequences
+
+Benefits:
+
+* Strong provenance
+* Human-readable artifacts
+* Version history
+* Branching workflows
+* Portable repositories
+
+Trade-offs:
+
+* More filesystem-oriented workflows
+* Eventual indexing requirements

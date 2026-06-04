@@ -1,0 +1,32 @@
+= KIOS Architecture
+:toc:
+:toclevels: 3
+
+== Core Principles
+
+* Git-Native Persistence
+* Provenance Awareness
+* Human-Readable Artifacts
+* Antora-Based Publication
+* AI-Assisted Investigation
+
+== Persistence Model
+
+KIOS treats Git repositories as the primary persistence layer.
+
+Investigations, knowledge repositories, and publications are persisted as Git-managed AsciiDoc artifacts.
+
+== Publication Model
+
+KIOS uses Antora and AsciiDoc for publication generation.
+
+== Provenance
+
+Every durable artifact should contain provenance metadata describing:
+
+* origin
+* repository
+* git commit
+* AI model
+* prompts
+* lineage

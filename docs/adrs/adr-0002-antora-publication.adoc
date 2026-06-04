@@ -1,0 +1,28 @@
+= ADR-0002 Antora Publication
+:sectnums:
+
+== Status
+
+Accepted
+
+== Context
+
+KIOS requires reproducible multi-repository publication workflows.
+
+== Decision
+
+KIOS shall use Antora and AsciiDoc as the canonical publication system.
+
+== Consequences
+
+Benefits:
+
+* Git-native publishing
+* Multi-repository aggregation
+* Versioned documentation
+* Human-readable content
+
+Trade-offs:
+
+* Antora learning curve
+* Additional repository structure requirements
